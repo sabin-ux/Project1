@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+require("./database/connection")
+
 app.get("/books",(req,res)=>{
     res.json({
         message: "books fetched successfully"
