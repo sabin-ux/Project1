@@ -1,8 +1,16 @@
-const { fetchBooks, addBook, deleteBook, updateBook } = require("../controller/boookController");
+const { addBook, deleteBook, fetchBook, singleFetchBook, updateBook } = require("../controller/boookController")
+ 
+const router = require("express").Router()
 
-const router =require("express").Router();
+router.route("/books",fetchBook)
+router.route("/books/:id",singleFetchBook)
+router.route("/books",addBook)
+router.route("/books/:id",updateBook)
+router.route("/books/:id",deleteBook)
 
-router.route("/books",).get(fetchBooks).post(addBook)
-router.route("/books/:id").delete(deleteBook).patch(updateBook)
+// router.get("/books",fetchBooks)
+// router.post("/boooks",addBook)
+// router.delete("/books",deleteBook) yesari ni milxa garna chai 
+module.exports = router
 
-module.exports = router;
+
